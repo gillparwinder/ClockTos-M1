@@ -1,0 +1,61 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '11.0'
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignal', '>= 3.0', '< 4.0'
+end
+target 'clocktos' do
+ 
+  # add pods for desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+
+
+
+  # $dynamic_framework = ['PayUAssetLibraryKit', 'PayUBizCoreKit', 'PayUCheckoutProBaseKit', 'PayUCheckoutProKit', 'PayUCustomBrowser', 'PayULoggerKit', 'PayUNetworkingKit', 'PayUUPICoreKit', 'Socket.IO-Client-Swift', 'Starscream']
+    pod 'RNCClipboard', :path => '../node_modules/@react-native-community/clipboard'
+
+    pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+  #   pre_install do |installer|
+  #     Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+  #     installer.pod_targets.each do |pod|
+  #       if $dynamic_framework.include?(pod.name)
+  #         def pod.build_type;
+  #         Pod::BuildType.dynamic_framework
+  #       end
+  #     end
+  #   end
+  # end
+  target 'clocktosTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+
+  
+  #use_flipper!
+  #post_install do |installer|
+  #  flipper_post_install(installer)
+  #end
+end
+
+target 'clocktos-tvOS' do
+  # Pods for clocktos-tvOS
+
+  target 'clocktos-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
+
+

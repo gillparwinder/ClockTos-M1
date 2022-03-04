@@ -1,0 +1,3 @@
+export const ADD_DETAILS = "ADD_DETAILS";
+export const DELETE_DETAILS = "DELETE_DETAILS";
+export const LOGIN_DETAILS = "LOGIN_DETAILS";
